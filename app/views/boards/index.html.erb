@@ -1,0 +1,5 @@
+<h1>Choose one...</h1>
+<% @boards.each do |board| %>
+  <%= link_to board.name, board %>
+  <%= link_to image_tag(board.name, height: '250', width: '250'), board %>
+<% end %>
