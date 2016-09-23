@@ -1,5 +1,10 @@
-<h1>Choose one...</h1>
-<% @boards.each do |board| %>
-  <%= link_to board.name, board %>
-  <%= link_to image_tag(board.name, height: '250', width: '250'), board %>
-<% end %>
+<div id="main">
+  <h1>Find waldo</h1>
+  <h3>Choose one...</h3>
+  <% @boards.each do |board| %>
+    <div class="level">
+      <div class="name"><%= board.name %></div>
+      <%= link_to image_tag(board.name, height: '250', width: '250'), board, class: "image" %>
+    </div>
+  <% end %>
+</div>
