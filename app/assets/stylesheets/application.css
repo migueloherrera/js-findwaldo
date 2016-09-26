@@ -52,3 +52,35 @@
   font-size: 2em;
   margin-top: 50px;
  }
+ 
+ .wrapper {
+  width: 100%;
+ }
+ 
+ .bigimage img {
+  width: 940px;
+  height: 710px;
+  float: left;
+  border: 1px solid #0D3D54;
+ }
+ 
+ .characterimage {
+  width: 100px;
+  float: left;
+  margin-left: 50px;
+ }
+ 
+ .characterimage h3 {
+  margin: 0;
+  padding: 0;
+ }
+ 
+ .char p {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+ }
+ 
+ .thumbnail img {
+  width: 60px;
+  border: 1px solid #0D3D54;
+ }

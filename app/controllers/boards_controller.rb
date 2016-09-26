@@ -4,6 +4,12 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])
+    find_board
+    @characters = @board.characters
   end
+  
+  private
+    def find_board
+      @board = Board.find(params[:id])
+    end
 end

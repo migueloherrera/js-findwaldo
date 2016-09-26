@@ -1,1 +1,15 @@
-<h1><%= image_tag(@board.name) %></h1>
+<h1>Level: <%= @board.name.capitalize %></h1>
+<div class="wrapper">
+  <div class="bigimage">
+    <%= image_tag(@board.name) %>
+  </div>
+  <div class="characterimage">
+    <h3>Find...</h3>
+    <% @characters.each do |character| %>
+      <div class="char <%= character.name %>">
+        <p><%= character.name %></p>
+        <div class="thumbnail"><%= image_tag(character.name.downcase) %></div>
+      </div>
+    <% end %>
+  </div>
+</div>

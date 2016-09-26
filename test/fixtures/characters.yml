@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  posx: 1
+  posy: 1
+  board_id: 
+
+two:
+  name: MyString
+  posx: 1
+  posy: 1
+  board_id: 
