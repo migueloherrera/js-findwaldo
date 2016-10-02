@@ -8,6 +8,12 @@ class BoardsController < ApplicationController
     @characters = @board.characters
   end
   
+  def read_character
+    find_board
+    @characters = @board.characters
+    render json: @characters
+  end
+  
   private
     def find_board
       @board = Board.find(params[:id])

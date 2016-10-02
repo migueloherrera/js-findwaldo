@@ -57,10 +57,25 @@
   width: 100%;
  }
  
+ .bigimage {
+  position: relative; 
+ }
+ 
  .bigimage img {
   width: 940px;
   height: 710px;
   float: left;
+  border: 1px solid #0D3D54;
+ }
+ 
+ #listOfCharacters {
+  position: absolute;
+  display: none;
+  left: 400px;
+  top: 200px;
+  width: 150px;
+  min-height: 150px;
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid #0D3D54;
  }
  
