@@ -8,17 +8,10 @@ function get_characters() {
       id: level
     }).done( function(data) {
       people = data;
-      populateMenu(data);
     }).fail( function( jqxhr, textStatus, error ) {
       var err = textStatus + ", " + error;
       console.log( "Ajax Request Failed: " + err );
     });
-  }
-}
-
-function populateMenu(data) {
-  for (var i=0; i < data.length; i++) {
-    console.log(data[i].name);
   }
 }
 
@@ -27,12 +20,17 @@ function inRange(row, col, x, y) {
 }
 
 function checkImage(posX, posY) {
-  console.log(posX, posY, people.length);
+  var found = people;
+  for (var i = 0; i < found.length; i++) {
+    console.log(posX, posY, found[i].posx, found[i].posy);
+    if (inRange(posX, posY, found[i].posx, found[i].posy)) {
+      console.log('Found: ', found[i].name);
+      $('.'+ (found[i].name.toLowerCase()) + ' .checkmark').show();
 
-  for (var i = 0; i < people.length; i++) {
-    console.log(posX, posY, people[i].posx, people[i].posy);
-    if (inRange(posX, posY, people[i].posx, people[i].posy)) {
-      console.log('Found: ', people[i].name);
+      people.splice(i, 1);
+      console.log(people);
+      
+      $('.marker').css('left',posX - 10).css('top', posY - 50).show();
     }
   }  
 }

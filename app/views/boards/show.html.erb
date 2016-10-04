@@ -2,14 +2,15 @@
 <div class="wrapper">
   <div class="bigimage">
     <%= image_tag(@board.name) %>
-    <div id="listOfCharacters"></div>
+    <div class="marker"><%= image_tag("marker.png") %></div>
   </div>
   <div class="characterimage">
     <h3>Find...</h3>
     <% @characters.each do |character| %>
-      <div class="char <%= character.name %>">
+      <div class="char <%= character.name.downcase %>">
         <p><%= character.name %></p>
         <div class="thumbnail"><%= image_tag(character.name.downcase) %></div>
+        <div class="checkmark"><%= image_tag("checkmark.png") %></div>
       </div>
     <% end %>
   </div>
