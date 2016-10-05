@@ -1,0 +1,20 @@
+<h1>Highest scores</h1>
+<% @players.each do |player| %>
+  <p><%= player.name %> <%= player.score %></p>
+<% end %>
+
+
+<% if !@player %>
+
+  My score: <%= @start %>
+  <% if @scores.length < 20 || @start < @scores.min %>
+    <% @player = Player.new %>
+    <%= form_for @player, url: {controller: "players", action: "create"} do |f| %>
+      <%= f.hidden_field 'score', :value => @start %>
+      <%= f.hidden_field 'board_id', :value => @board.id %>    
+      <%= f.text_field :name %>
+      <%= f.submit %>
+    <% end %>      
+  <% end %>
+
+<% end %>

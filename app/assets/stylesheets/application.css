@@ -68,16 +68,12 @@
   border: 1px solid #0D3D54;
  }
  
- .marker {
+ .square {
   position: absolute;
-  display: none;
   width: 25px;
   height: 40px;
- }
- 
- .marker img {
-  width: 25px;
-  height: 40px;
+  border: 1px solid #0D3D54;
+  background: rgba(255, 255, 255, 0.7);
  }
  
  .characterimage {

@@ -2,7 +2,6 @@
 <div class="wrapper">
   <div class="bigimage">
     <%= image_tag(@board.name) %>
-    <div class="marker"><%= image_tag("marker.png") %></div>
   </div>
   <div class="characterimage">
     <h3>Find...</h3>
@@ -13,5 +12,10 @@
         <div class="checkmark"><%= image_tag("checkmark.png") %></div>
       </div>
     <% end %>
+  </div>
+  <div id="gameover">
+    <p>You won!</p>
+    <%= link_to "Click to continue...", players_path(board_id: @board.id, start: 5) %>
+    <%= @start %>
   </div>
 </div>

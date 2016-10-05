@@ -1,4 +1,3 @@
-console.log('we are here...');
 var people;
 
 function get_characters() {
@@ -26,26 +25,23 @@ function checkImage(posX, posY) {
     if (inRange(posX, posY, found[i].posx, found[i].posy)) {
       console.log('Found: ', found[i].name);
       $('.'+ (found[i].name.toLowerCase()) + ' .checkmark').show();
-
+      $("<div class='square' style='left:" + found[i].posx + "px; top:" + found[i].posy + "px;'></div>").appendTo('.bigimage');
       people.splice(i, 1);
       console.log(people);
-      
-      $('.marker').css('left',posX - 10).css('top', posY - 50).show();
     }
   }  
 }
 
 $(document).on("turbolinks:load", function() {
   console.log('turbo is ready: ', $.turbo.isReady);
-  get_characters();
-  console.log('the document is ready');
+  if ($('.wrapper').length) {
+    get_characters();
+  }
   $('.bigimage img').on('click', function(event) {
     console.log('clicked image');
     var offset = $(this).offset();
     var clickedX = event.pageX - offset.left;
     var clickedY = event.pageY - offset.top;  
-
     checkImage(clickedX, clickedY);
   });
- 
 });
