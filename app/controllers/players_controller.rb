@@ -2,13 +2,9 @@ class PlayersController < ApplicationController
   
   def index
     search_players(params[:board_id])
-    @start = params[:start].to_i
+    @start = Time.now.to_i - params[:start].to_i
   end
 
-  def new
-    @player = Player.new
-  end
-  
   def create
     @player = Player.new(player_params)
     if @player.save 
@@ -26,7 +22,7 @@ class PlayersController < ApplicationController
     
     def search_players(board)
       @board = Board.find(board)
-      @players = @board.players.order('score desc').limit(20)
+      @players = @board.players.order('score asc').limit(20)
       @scores = @players.map { |p| p.score }
     end
   

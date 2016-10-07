@@ -1,20 +1,30 @@
-<h1>Highest scores</h1>
-<% @players.each do |player| %>
-  <p><%= player.name %> <%= player.score %></p>
-<% end %>
-
-
-<% if !@player %>
-
-  My score: <%= @start %>
-  <% if @scores.length < 20 || @start < @scores.min %>
-    <% @player = Player.new %>
-    <%= form_for @player, url: {controller: "players", action: "create"} do |f| %>
-      <%= f.hidden_field 'score', :value => @start %>
-      <%= f.hidden_field 'board_id', :value => @board.id %>    
-      <%= f.text_field :name %>
-      <%= f.submit %>
-    <% end %>      
+<h1>Fastest times</h1>
+<div class="scores">
+  <% @players.each do |player| %>
+    <div class="playername"><%= player.name %></div>
+    <div class="score"><%= Time.at(player.score).utc.strftime("%H:%M:%S") %></div>
   <% end %>
+</div>
+
+<% if @player %>
+
+  <div class="again"><%= link_to "Play again", root_path %></div>
+
+<% else %>
+
+  <div id="newentry">
+    My score: <%= Time.at(@start).utc.strftime("%H:%M:%S") %>
+    <% if @scores.length < 20 || @start <= @scores.max %>
+      <% @player = Player.new %>
+      <%= form_for @player, url: {controller: "players", action: "create"} do |f| %>
+        <%= f.hidden_field 'score', :value => @start %>
+        <%= f.hidden_field 'board_id', :value => @board.id %>    
+        <%= f.text_field :name %>
+        <%= f.submit %>
+      <% end %>      
+    <% else %>
+      <div class="again"><%= link_to "Play again", root_path %></div>  
+    <% end %>
+  </div>
 
 <% end %>

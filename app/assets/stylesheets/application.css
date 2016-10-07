@@ -102,7 +102,7 @@
  }
  /* I think there is a better way to do this without hardcoding it, but how? */
  .waldo .checkmark,
- .wendy .checkmark,
+ .wenda .checkmark,
  .wizard .checkmark,
  .odlaw .checkmark {
   position: absolute;
@@ -112,10 +112,98 @@
  }
  
  .waldo .checkmark img,
- .wendy .checkmark img,
+ .wenda .checkmark img,
  .wizard .checkmark img,
  .odlaw .checkmark img {
   border: none;
   width: 60px;
   height: 100px;
+ }
+ 
+ #gameover {
+  display: none;
+  position: absolute;
+  left: 350px;
+  top: 350px;
+  background: rgba(255, 148, 0, 0.8);
+  border: 1px solid #0D3D54;
+  width: 300px;
+  height: 200px;
+ }
+ 
+ #gameover p {
+  font-size: 2.5em;
+  font-weight: bold;
+ }
+ 
+ #gameover a {
+  text-decoration: none;
+  font-size: 1.5em;
+  padding: 8px;
+  background: #0D3D54;
+  color: #FF9400;
+ }
+ 
+ #gameover a:hover {
+  border: 1px solid yellow;
+ }
+ 
+ .scores {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+ }
+ 
+ .playername, .score {
+  width: 50%;
+  float: left;
+ }
+ 
+ .again {
+  margin-top: 30px;
+  clear: both;
+ }
+ 
+ .again a {
+  text-decoration: none;
+  font-size: 1.5em;
+  padding: 8px;
+  background: #0D3D54;
+  color: #FF9400;
+ }
+ 
+ .again a:hover {
+  border: 1px solid yellow;
+ }
+ 
+ #newentry {
+  clear: both;
+  font-size: 1.5em;
+  padding: 8px;
+  text-align: center;
+  margin: 0 auto;
+ }
+ 
+ form {
+  font-size: .8em;
+  line-height: 2;
+ }
+
+ input {
+  display: block;
+  border: 1px solid #D3D3D3;
+  border-radius: 3px;
+  margin: 8px auto;
+  height: 34px;
+  width: 300px;
+ }
+
+ input[type=submit] {
+  font-size: 1em;
+  padding: 5px;
+  width: 200px;
+  background: #0D3D54;
+  color: #FF9400;
  }

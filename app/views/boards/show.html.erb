@@ -15,7 +15,6 @@
   </div>
   <div id="gameover">
     <p>You won!</p>
-    <%= link_to "Click to continue...", players_path(board_id: @board.id, start: 5) %>
-    <%= @start %>
+    <%= link_to "Click to continue...", players_path(board_id: @board.id, start: @start) %>
   </div>
 </div>

@@ -6,7 +6,7 @@ class BoardsController < ApplicationController
   def show
     find_board
     @characters = @board.characters
-    @start = Time.now
+    @start = Time.now.to_i
   end
   
   def read_character

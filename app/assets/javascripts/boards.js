@@ -21,24 +21,22 @@ function inRange(row, col, x, y) {
 function checkImage(posX, posY) {
   var found = people;
   for (var i = 0; i < found.length; i++) {
-    console.log(posX, posY, found[i].posx, found[i].posy);
     if (inRange(posX, posY, found[i].posx, found[i].posy)) {
-      console.log('Found: ', found[i].name);
       $('.'+ (found[i].name.toLowerCase()) + ' .checkmark').show();
       $("<div class='square' style='left:" + found[i].posx + "px; top:" + found[i].posy + "px;'></div>").appendTo('.bigimage');
       people.splice(i, 1);
-      console.log(people);
+      if (people.length == 0) {
+        $('#gameover').fadeIn('slow');
+      }
     }
   }  
 }
 
 $(document).on("turbolinks:load", function() {
-  console.log('turbo is ready: ', $.turbo.isReady);
   if ($('.wrapper').length) {
     get_characters();
   }
   $('.bigimage img').on('click', function(event) {
-    console.log('clicked image');
     var offset = $(this).offset();
     var clickedX = event.pageX - offset.left;
     var clickedY = event.pageY - offset.top;  
